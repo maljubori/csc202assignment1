@@ -1,5 +1,7 @@
-package sample;/**
- * Created by m_al_ on 9/5/2016.
+package sample;
+
+/**
+ * Created by m_al_ on 9/2/2016.
  */
 
 import javafx.fxml.FXMLLoader;
@@ -11,11 +13,11 @@ import java.io.IOException;
 
 public class SignUpJavaFXView {
 
-    private static Stage signupStage = new Stage();
+    public static Stage signupStage = new Stage();
     public SignUpJavaFXView() throws IOException {
-        Parent signupView = FXMLLoader.load(getClass().getResource("SignupJavaFx.fxml"));
+        Parent signupView = FXMLLoader.load(getClass().getResource("SignUpJavaFx.fxml"));
         signupStage.setTitle("Signup Page");
-        Scene signupScene = new Scene(signupView, 300, 275);
+        Scene signupScene = new Scene(signupView, 300, 400);
         signupStage.setScene(signupScene);
         signupStage.show();
     }

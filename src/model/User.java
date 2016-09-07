@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 
 /**
- * Created by m_al_ on 9/5/2016.
+ * Created by m_al_ on 9/2/2016.
  */
 public class User extends Person implements Serializable {
     private String username;
@@ -21,20 +21,18 @@ public class User extends Person implements Serializable {
             this.username =username;
             this.password =password;
     }
-    public User(String username, String password, String phonenumber, String email, String profilepic){
+    public User(String username, String password, String phonenumber, String email){
             this.username = username;
             this.password = password;
             this.phonenumber = phonenumber;
             this.email = email;
-            this.profilepic = profilepic;
     }
-    public User(String firstname, String lastname, String birthdate, String gender, String social, String username, String email, String phonenumber, String password, String profilepic) {
+    public User(String firstname, String lastname, String gender, String birthdate, String email, String phonenumber, String social, String password, String username) {
         super(firstname, lastname, birthdate, gender, social);
         this.username = username;
         this.email = email;
         this.phonenumber = phonenumber;
         this.password = password;
-        this.profilepic = profilepic;
     }
 
     public String getUsername() {
@@ -69,32 +67,22 @@ public class User extends Person implements Serializable {
         this.password = password;
     }
 
-    public String getProfilepic() {
-        return profilepic;
-    }
-
-    public void setProfilepic(String profilepic) {
-        this.profilepic = profilepic;
-    }
-
     public boolean equals(User user) {
         return(this.username.equals(user.username));
     }
-
 
     public int compareTo(User user) {
         return(this.username.compareTo(user.username));
     }
 
+
     @Override
     public String toString() {
         return "User{" +
-                "username='" + username + '\'' +
-                ", email='" + email + '\'' +
-                ", phonenumber='" + phonenumber + '\'' +
-                ", password='" + password + '\'' +
-                ", profilepic='" + profilepic + '\'' +
-                '}';
+                "username='" + username +
+                ", email='" + email +
+                ", phonenumber='" + phonenumber +
+                ", password='" + password;
     }
 
 }

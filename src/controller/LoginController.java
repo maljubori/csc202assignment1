@@ -1,55 +1,56 @@
 package controller;
 
 /**
- * Created by m_al_ on 9/5/2016.
+ * Created by m_al_ on 9/2/2016.
  */
-import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import model.Userdatabase;
 import sample.SignUpJavaFXView;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
+import sample.AccountJavaFXView;
+import sample.LoginJavaFXView;
+import model.User;
 import java.io.IOException;
+
 
 public class LoginController {
     @FXML
     TextField username;
     @FXML
     PasswordField password;
-    @FXML
-    Button button;
-
-    boolean exist;
+    boolean exist = false;
+    public static User loggeduser = new User();
 
     public LoginController() {
-            exist = false;
+        exist = false;
+    }
+
+    public void openSignUpView() throws IOException {
+        new SignUpJavaFXView();
     }
 
     public void authenticate() {
-        for (int i = 0; i < Userdatabase.getUsers().size(); i++) {
-            if (username.getText().equals(Userdatabase.getUsers().get(i).getUsername())) {
-                System.out.println("Welcome, " + username.getText() + "!");
-//                try {
-//                    new LoginJavaFXView();
-//                } catch (IOException e) {
-//                    System.err.println("Error Username database list");
-//                    e.printStackTrace();
-//                }
-                exist = true;
+        if (!exist) {
+            for (int i = 0; i < Userdatabase.getUsers().size(); i++) {
+                if (username.getText().equals(Userdatabase.getUsers().get(i).getUsername())) {
+                    System.out.println("Welcome, " + username.getText() + "!");
+                    loggeduser = (Userdatabase.getUsers().get(i));
+                    exist = true;
+                    try {
+                        new AccountJavaFXView();
+                    } catch (IOException e) {
+                        System.err.println("Error opening username database list");
+                        e.printStackTrace();
+                    }
+                }
+                else {
+                    System.out.println("No user found");
+                }
             }
         }
     }
-
-    public void openSignupView() throws IOException {
-        System.out.println("Open sign up sample");
-        new SignUpJavaFXView();
-        // close here
-    }
 }
+
 
 

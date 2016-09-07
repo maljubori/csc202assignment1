@@ -2,13 +2,14 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignupController">
+<GridPane fx:id="signupwindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignupController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -27,15 +28,14 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label fx:id="lbl" text="Username" GridPane.rowIndex="1" />
-      <Label text="Password" GridPane.rowIndex="9" />
-      <Label text="Confirm Password" GridPane.rowIndex="10" />
-      <Button mnemonicParsing="false" onAction="#createAccount" text="Sign Up" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+      <Label text="Username" GridPane.rowIndex="1" />
+      <Label text="Password" GridPane.rowIndex="10" />
+      <Label text="Confirm Password" GridPane.rowIndex="11" />
+      <Button fx:id="checkbutton" mnemonicParsing="false" onAction="#createAccount" text="Sign Up" GridPane.columnIndex="1" GridPane.rowIndex="12" />
       <TextField fx:id="username" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="9" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="10" />
       <Label text="First Name" GridPane.rowIndex="2" />
       <Label text="Last Name" GridPane.rowIndex="3" />
       <Label text="Gender" GridPane.rowIndex="4" />
@@ -43,13 +43,17 @@
       <Label text="Email" GridPane.rowIndex="6" />
       <Label text="Phone Number" GridPane.rowIndex="7" />
       <Label text="SSN" GridPane.rowIndex="8" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
-      <RadioButton mnemonicParsing="false" text="Male" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <RadioButton mnemonicParsing="false" text="Female" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <TextField fx:id="firstname" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="lastname" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <TextField fx:id="email" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <TextField fx:id="birthdate" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <TextField fx:id="phonenumber" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <TextField fx:id="ssn" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+      <TextField fx:id="gender" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <Label text="Profile Picture" GridPane.rowIndex="9" />
+      <PasswordField fx:id="password" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+      <PasswordField fx:id="confirmpassword" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+      <ImageView fx:id="imagefield" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+      <Button fx:id="imageselectbutton" mnemonicParsing="false" onAction="#createFileChooser" text="Select Image" GridPane.columnIndex="2" GridPane.rowIndex="9" />
    </children>
 </GridPane>
