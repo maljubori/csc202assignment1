@@ -15,11 +15,9 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import model.User;
 import model.Userdatabase;
 import model.UserIO;
-import sample.LoginJavaFXView;
 import sample.SignUpJavaFXView;
 import java.net.MalformedURLException;
 
-import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -27,8 +25,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import sample.AccountJavaFXView;
 
 import static sample.SignUpJavaFXView.signupStage;
 
@@ -56,6 +52,7 @@ public class SignupController{
     @FXML
     ImageView imageviewsign;
     public String imageviewpath;
+    User newuser = new User();
 
     boolean correct = false;
     boolean usernameexists = false;

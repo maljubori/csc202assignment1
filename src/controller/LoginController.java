@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import model.Userdatabase;
-import sample.LoginJavaFXView;
 import sample.SignUpJavaFXView;
 import sample.AccountJavaFXView;
 import model.User;

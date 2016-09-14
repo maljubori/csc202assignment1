@@ -35,7 +35,9 @@ public class AccountController {
         phonenumberfill.setText(LoginController.loggeduser.getPhonenumber());
         ssnfill.setText(LoginController.loggeduser.getSocial());
         genderfill.setText(LoginController.loggeduser.getGender());
+
         // Save profile picture to a value that can be used here, but what?
+
         //String imagepath = SignupController.picture.toURI().toURL().toString();
         //Image image = new Image(imagepath);
         //imageviewaccount.setImage(image);
