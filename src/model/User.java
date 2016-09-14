@@ -67,6 +67,10 @@ public class User extends Person implements Serializable {
         this.password = password;
     }
 
+    public void setProfilepic(String profilepic) { this.profilepic = profilepic; }
+
+    public String getProfilepic() { return profilepic; }
+
     public boolean equals(User user) {
         return(this.username.equals(user.username));
     }

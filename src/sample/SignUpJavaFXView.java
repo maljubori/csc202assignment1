@@ -17,7 +17,7 @@ public class SignUpJavaFXView {
     public SignUpJavaFXView() throws IOException {
         Parent signupView = FXMLLoader.load(getClass().getResource("SignUpJavaFx.fxml"));
         signupStage.setTitle("Signup Page");
-        Scene signupScene = new Scene(signupView, 300, 400);
+        Scene signupScene = new Scene(signupView, 300, 850);
         signupStage.setScene(signupScene);
         signupStage.show();
     }

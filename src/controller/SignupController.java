@@ -8,15 +8,23 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import model.User;
 import model.Userdatabase;
 import model.UserIO;
+import sample.LoginJavaFXView;
 import sample.SignUpJavaFXView;
+import java.net.MalformedURLException;
+
+import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,7 +32,7 @@ import sample.AccountJavaFXView;
 
 import static sample.SignUpJavaFXView.signupStage;
 
-public class SignupController {
+public class SignupController{
     @FXML
     TextField username;
     @FXML
@@ -46,7 +54,8 @@ public class SignupController {
     @FXML
     TextField gender;
     @FXML
-
+    ImageView imageviewsign;
+    public String imageviewpath;
 
     boolean correct = false;
     boolean usernameexists = false;
@@ -122,6 +131,7 @@ public class SignupController {
                  }
             if(!usernameexists&&newuser.getPassword().equals(confirmpassword.getText())&&isLegalPassword(password.getText())&&isValidEmail(email.getText())&&isValidPhone(phonenumber.getText())&&isValidDate(birthdate.getText())&&isValidSsn(ssn.getText())&&gender.getText().equalsIgnoreCase("male")&&!gender.getText().equalsIgnoreCase("female"))
             try {
+                newuser.setProfilepic(imageviewpath);
                 Userdatabase.users.add(newuser);
                 UserIO.writeUsers(Userdatabase.getUsers());
                 System.out.println("Database succesfuly updated!");
@@ -131,16 +141,22 @@ public class SignupController {
                 e.printStackTrace();
             }
         }
-    public void createFileChooser() {
+    public void createFileChooser() throws MalformedURLException{
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
+        fileChooser.setTitle("Choose a profile picture.");
         fileChooser.getExtensionFilters().addAll(
-                new ExtensionFilter("Text Files", "*.txt"),
                 new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"),
+                new ExtensionFilter("Text Files", "*.txt"),
                 new ExtensionFilter("Audio Files", "*.wav", "*.mp3", "*.aac"),
                 new ExtensionFilter("All Files", "*.*"));
-        File selectedFile = fileChooser.showOpenDialog(SignUpJavaFXView.getSignupStage());
-        System.out.println(selectedFile.getPath());
+        File picture = fileChooser.showOpenDialog(SignUpJavaFXView.getSignupStage());
+        System.out.println(picture.getPath());
+        String imagepath = picture.toURI().toURL().toString();
+        imageviewpath = picture.toURI().toURL().toString();
+        Image image = new Image(imagepath);
+        imageviewsign.setImage(image);
+        imageviewsign.setFitHeight(100);
+        imageviewsign.setFitWidth(100);
 
     }
 }

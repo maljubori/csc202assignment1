@@ -53,7 +53,7 @@
       <Label text="Profile Picture" GridPane.rowIndex="9" />
       <PasswordField fx:id="password" GridPane.columnIndex="1" GridPane.rowIndex="10" />
       <PasswordField fx:id="confirmpassword" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-      <ImageView fx:id="imagefield" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+      <ImageView fx:id="imageviewsign" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="9" />
       <Button fx:id="imageselectbutton" mnemonicParsing="false" onAction="#createFileChooser" text="Select Image" GridPane.columnIndex="2" GridPane.rowIndex="9" />
    </children>
 </GridPane>
